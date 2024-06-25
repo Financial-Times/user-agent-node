@@ -1,5 +1,6 @@
 plugins:
   - './.toolkit/plugins/commitlint'
+  - './.toolkit/plugins/node-test'
   - '@dotcom-tool-kit/component'
   - '@dotcom-tool-kit/eslint'
   - '@dotcom-tool-kit/husky-npm'
@@ -21,10 +22,12 @@ hooks:
   test:local:
     - Eslint
     - TypeScriptTest
+    - NodeTest
 
   test:ci:
     - Eslint
     - TypeScriptTest
+    - NodeTest
 
 options:
   '@dotcom-tool-kit/circleci':

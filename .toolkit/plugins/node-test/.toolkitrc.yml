@@ -1,0 +1,5 @@
+hooks:
+  test:local:
+    - NodeTest
+  test:ci:
+    - NodeTest

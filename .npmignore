@@ -1,7 +1,6 @@
 .commitlintrc.json
 .eslintrc.json
 .github
-.nyc_output
 .toolkit*
 jsconfig.json
 test
