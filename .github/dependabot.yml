@@ -1,0 +1,21 @@
+version: 2
+updates:
+
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "daily"
+      time: "09:00"
+      timezone: "Europe/London"
+    groups:
+      development-dependencies:
+        dependency-type: "development"
+        update-types:
+          - "minor"
+          - "patch"
+      tool-kit:
+        patterns:
+          - "@dotcom-tool-kit/*"
+        update-types:
+          - "minor"
+          - "patch"

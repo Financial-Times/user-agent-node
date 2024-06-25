@@ -1,0 +1,40 @@
+plugins:
+  - './.toolkit/plugins/commitlint'
+  - '@dotcom-tool-kit/component'
+  - '@dotcom-tool-kit/eslint'
+  - '@dotcom-tool-kit/husky-npm'
+  - '@dotcom-tool-kit/lint-staged-npm'
+  - '@dotcom-tool-kit/prettier'
+  - '@dotcom-tool-kit/typescript'
+
+hooks:
+
+  # Empty to avoid a TypeScript build step
+  build:local: []
+
+  git:precommit:
+    - LintStaged
+
+  # Empty to avoid a TypeScript build step
+  run:local: []
+
+  test:local:
+    - Eslint
+    - TypeScriptTest
+
+  test:ci:
+    - Eslint
+    - TypeScriptTest
+
+options:
+  '@dotcom-tool-kit/circleci':
+    nodeVersion:
+      - '22.3'
+      - '20.15'
+      - '18.20'
+  '@dotcom-tool-kit/eslint':
+    files: '**/*.js'
+  '@dotcom-tool-kit/prettier':
+    files: '**/*.js'
+  '@dotcom-tool-kit/typescript':
+    configPath: jsconfig.json

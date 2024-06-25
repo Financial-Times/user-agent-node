@@ -1,0 +1,51 @@
+{
+  "name": "@financial-times/user-agent",
+  "version": "0.0.0",
+  "description": "A library to generate user-agent strings that conform to the FT standard",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Financial-Times/user-agent-node.git"
+  },
+  "homepage": "https://github.com/Financial-Times/user-agent-node",
+  "bugs": "https://github.com/Financial-Times/user-agent-node/issues",
+  "license": "MIT",
+  "main": "lib/user-agent.js",
+  "types": "types/user-agent.d.ts",
+  "scripts": {
+    "build": "dotcom-tool-kit build:local",
+    "test": "dotcom-tool-kit test:local",
+    "start": "dotcom-tool-kit run:local",
+    "format": "dotcom-tool-kit format:local"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.24.7",
+    "@babel/eslint-parser": "^7.24.7",
+    "@commitlint/cli": "^19.3.0",
+    "@commitlint/config-conventional": "^19.2.2",
+    "@dotcom-reliability-kit/eslint-config": "^3.1.0",
+    "@dotcom-tool-kit/component": "^4.1.3",
+    "@dotcom-tool-kit/eslint": "^3.2.1",
+    "@dotcom-tool-kit/husky-npm": "^4.2.0",
+    "@dotcom-tool-kit/lint-staged-npm": "^3.2.0",
+    "@dotcom-tool-kit/prettier": "^3.2.0",
+    "@dotcom-tool-kit/typescript": "^2.2.0",
+    "@financial-times/eslint-config-next": "^7.1.0",
+    "dotcom-tool-kit": "^3.5.0",
+    "eslint-plugin-prettier": "^5.1.3"
+  },
+  "engines": {
+    "node": "18.x || 20.x || 22.x"
+  },
+  "lint-staged": {
+    "**/*.js": "dotcom-tool-kit format:staged test:staged --"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "dotcom-tool-kit git:precommit",
+      "commit-msg": "dotcom-tool-kit git:commitmsg"
+    }
+  },
+  "volta": {
+    "node": "20.15.0"
+  }
+}

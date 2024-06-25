@@ -1,0 +1,15 @@
+{
+	"compilerOptions": {
+		"checkJs": true,
+		"exactOptionalPropertyTypes": true,
+		"maxNodeModuleJsDepth": 0,
+		"module": "CommonJS",
+		"noEmit": true,
+		"noImplicitOverride": true,
+		"resolveJsonModule": true,
+		"strict": true,
+		"target": "es2022"
+	},
+	"exclude": ["**/*.spec.js", "coverage", "node_modules"],
+	"include": ["**/*.js"]
+}
