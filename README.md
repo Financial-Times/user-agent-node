@@ -21,7 +21,7 @@ npm install --save @financial-times/user-agent
 Include in your code:
 
 ```js
-import buildUserAgent from '@financial-times/user-agent';
+import { buildUserAgent } from '@financial-times/user-agent';
 // or
 const { buildUserAgent } = require('@financial-times/user-agent');
 ```
