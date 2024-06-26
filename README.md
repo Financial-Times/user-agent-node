@@ -63,7 +63,7 @@ buildUserAgent({ urls: ['https://www.ft.com/'] });
 // "FTSystem/myapp/1.2.3 (+https://www.ft.com/; Node.js/22.3.0)"
 ```
 
-If you pass in multiple libraries then they will be separated by semicolons (`;`). If a library with a given name cannot be found under `node_modules` then it will be excluded.
+If you pass in multiple urls then they will be separated by semicolons (`;`).
 
 
 ## License
