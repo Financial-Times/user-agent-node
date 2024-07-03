@@ -7,6 +7,9 @@ updates:
       interval: "daily"
       time: "09:00"
       timezone: "Europe/London"
+    commit-message:
+      prefix: "fix:"
+      prefix-development: "chore:"
     groups:
       development-dependencies:
         dependency-type: "development"
