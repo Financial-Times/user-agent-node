@@ -1,3 +1,4 @@
 .nyc_output
+.toolkitstate
 coverage
 node_modules

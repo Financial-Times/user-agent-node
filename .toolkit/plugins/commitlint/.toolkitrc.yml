@@ -1,3 +1,7 @@
-hooks:
-  git:commitmsg:
-    - Commitlint
+tasks:
+  Commitlint: './index.js'
+
+commands:
+  'git:commitmsg': Commitlint
+
+version: 2

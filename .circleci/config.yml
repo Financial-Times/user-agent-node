@@ -39,49 +39,54 @@ workflows:
               only: /(^renovate-.*|^nori/.*)/
       - tool-kit/setup:
           name: tool-kit/setup-<< matrix.executor >>
-          requires:
-            - checkout
-            - waiting-for-approval
           matrix:
             parameters:
               executor:
                 - node
                 - node20_15
                 - node18_20
+          requires:
+            - checkout
+            - waiting-for-approval
           filters:
             tags:
               only: /^v\d+\.\d+\.\d+(-.+)?/
       - tool-kit/build:
           name: tool-kit/build-<< matrix.executor >>
-          requires:
-            - tool-kit/setup-<< matrix.executor >>
           matrix:
             parameters:
               executor:
                 - node
                 - node20_15
                 - node18_20
+          requires:
+            - tool-kit/setup-<< matrix.executor >>
           filters:
             tags:
               only: /^v\d+\.\d+\.\d+(-.+)?/
       - tool-kit/test:
           name: tool-kit/test-<< matrix.executor >>
-          requires:
-            - tool-kit/build-<< matrix.executor >>
           matrix:
             parameters:
               executor:
                 - node
                 - node20_15
                 - node18_20
+          requires:
+            - tool-kit/build-<< matrix.executor >>
           filters:
             tags:
               only: /^v\d+\.\d+\.\d+(-.+)?/
       - tool-kit/publish-tag:
+          name: tool-kit/publish-tag-<< matrix.executor >>
+          matrix:
+            parameters:
+              executor:
+                - node
+                - node20_15
+                - node18_20
           requires:
-            - tool-kit/test-node
-          name: tool-kit/publish-tag-node
-          executor: node
+            - tool-kit/test-<< matrix.executor >>
           filters:
             tags:
               only: /^v\d+\.\d+\.\d+(-.+)?/
@@ -101,31 +106,31 @@ workflows:
       - checkout
       - tool-kit/setup:
           name: tool-kit/setup-<< matrix.executor >>
+          matrix:
+            parameters:
+              executor:
+                - node
+                - node20_15
+                - node18_20
           requires:
             - checkout
-          matrix:
-            parameters:
-              executor:
-                - node
-                - node20_15
-                - node18_20
       - tool-kit/build:
           name: tool-kit/build-<< matrix.executor >>
+          matrix:
+            parameters:
+              executor:
+                - node
+                - node20_15
+                - node18_20
           requires:
             - tool-kit/setup-<< matrix.executor >>
-          matrix:
-            parameters:
-              executor:
-                - node
-                - node20_15
-                - node18_20
       - tool-kit/test:
           name: tool-kit/test-<< matrix.executor >>
-          requires:
-            - tool-kit/build-<< matrix.executor >>
           matrix:
             parameters:
               executor:
                 - node
                 - node20_15
                 - node18_20
+          requires:
+            - tool-kit/build-<< matrix.executor >>

@@ -1,5 +1,8 @@
-hooks:
-  test:local:
-    - NodeTest
-  test:ci:
-    - NodeTest
+tasks:
+  NodeTest: './index.js'
+
+commands:
+  'test:ci': NodeTest
+  'test:local': NodeTest
+
+version: 2
