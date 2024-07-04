@@ -8,7 +8,7 @@ plugins:
   - '@dotcom-tool-kit/prettier'
   - '@dotcom-tool-kit/typescript'
 
-hooks:
+commands:
 
   # Empty to avoid a TypeScript build step
   build:local: []
@@ -21,23 +21,25 @@ hooks:
 
   test:local:
     - Eslint
-    - TypeScriptTest
+    - TypeScript
     - NodeTest
 
   test:ci:
     - Eslint
-    - TypeScriptTest
+    - TypeScript
     - NodeTest
 
 options:
-  '@dotcom-tool-kit/circleci':
-    nodeVersion:
-      - '22.3'
-      - '20.15'
-      - '18.20'
-  '@dotcom-tool-kit/eslint':
-    files: '**/*.js'
-  '@dotcom-tool-kit/prettier':
-    files: '**/*.js'
-  '@dotcom-tool-kit/typescript':
-    configPath: jsconfig.json
+  plugins:
+    '@dotcom-tool-kit/circleci':
+      cimgNodeVersions:
+        - '22.3'
+        - '20.15'
+        - '18.20'
+  tasks:
+    Eslint:
+      files: '**/*.js'
+    Prettier:
+      files: '**/*.js'
+    TypeScript:
+      configPath: jsconfig.json
