@@ -3,3 +3,7 @@
 
 # Allow next-team to approve PRs that only modify package files
 **/package*.json @next-team @Financial-Times/cp-reliability
+
+
+# Allow next-team to approve PRs that only modify package files
+**/package*.json @next-team @Financial-Times/cp-reliability
