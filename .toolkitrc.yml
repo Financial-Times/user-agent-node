@@ -1,6 +1,6 @@
 plugins:
-  - './.toolkit/plugins/commitlint'
-  - './.toolkit/plugins/node-test'
+  - './plugins/toolkit/node-test'
+  - '@dotcom-tool-kit/commitlint'
   - '@dotcom-tool-kit/component'
   - '@dotcom-tool-kit/eslint'
   - '@dotcom-tool-kit/husky-npm'
