@@ -38,7 +38,7 @@ It also includes the Node.js version. E.g.
 
 ```js
 buildUserAgent();
-// "FTSystem/myapp/1.2.3 (Node.js/22.3.0)"
+// "FTSystem/myapp/1.2.3 (Node.js/22.13.1)"
 ```
 
 You can optionally pass in options to `buildUserAgent` to change the output. These options can all be used together.
@@ -49,7 +49,7 @@ If you pass in an options object with a `libraries` property (Array of strings -
 
 ```js
 buildUserAgent({ libraries: ['node-fetch'] });
-// "FTSystem/myapp/1.2.3 (node-fetch/2.0.0; Node.js/22.3.0)"
+// "FTSystem/myapp/1.2.3 (node-fetch/2.0.0; Node.js/22.13.1)"
 ```
 
 If you pass in multiple libraries then they will be separated by semicolons (`;`). If a library with a given name cannot be found under `node_modules` then it will be excluded.
@@ -60,7 +60,7 @@ If you pass in an options object with a `urls` property (Array of strings - `str
 
 ```js
 buildUserAgent({ urls: ['https://www.ft.com/'] });
-// "FTSystem/myapp/1.2.3 (+https://www.ft.com/; Node.js/22.3.0)"
+// "FTSystem/myapp/1.2.3 (+https://www.ft.com/; Node.js/22.13.1)"
 ```
 
 If you pass in multiple urls then they will be separated by semicolons (`;`).
