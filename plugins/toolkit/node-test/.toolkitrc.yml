@@ -1,8 +1,0 @@
-tasks:
-  NodeTest: './index.js'
-
-commands:
-  'test:ci': NodeTest
-  'test:local': NodeTest
-
-version: 2
