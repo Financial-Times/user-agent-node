@@ -21,8 +21,8 @@
     "@dotcom-reliability-kit/app-info": "^4.1.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.24.7",
-    "@babel/eslint-parser": "^7.27.0",
+    "@babel/core": "^7.27.1",
+    "@babel/eslint-parser": "^7.27.1",
     "@commitlint/config-conventional": "^19.2.2",
     "@dotcom-reliability-kit/eslint-config": "^4.0.0",
     "@dotcom-tool-kit/commitlint": "^1.2.10",
