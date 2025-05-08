@@ -18,7 +18,7 @@
     "format": "dotcom-tool-kit format:local"
   },
   "dependencies": {
-    "@dotcom-reliability-kit/app-info": "^4.1.0"
+    "@dotcom-reliability-kit/app-info": "^4.2.0"
   },
   "devDependencies": {
     "@babel/core": "^7.27.1",
