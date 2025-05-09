@@ -33,6 +33,7 @@ options:
   plugins:
     '@dotcom-tool-kit/circleci':
       cimgNodeVersions:
+        - '24.0'
         - '22.13'
         - '20.18'
   tasks:
