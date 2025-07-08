@@ -34,7 +34,7 @@
     "@dotcom-tool-kit/prettier": "^4.3.5",
     "@dotcom-tool-kit/typescript": "^3.3.4",
     "@financial-times/eslint-config-next": "^7.1.0",
-    "dotcom-tool-kit": "^4.8.2",
+    "dotcom-tool-kit": "^4.9.0",
     "eslint-plugin-prettier": "^5.5.1",
     "quibble": "^0.9.2"
   },
