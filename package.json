@@ -32,7 +32,7 @@
     "@dotcom-tool-kit/lint-staged-npm": "^4.2.6",
     "@dotcom-tool-kit/node-test": "^1.0.7",
     "@dotcom-tool-kit/prettier": "^4.3.7",
-    "@dotcom-tool-kit/typescript": "^3.3.6",
+    "@dotcom-tool-kit/typescript": "^4.0.0",
     "@financial-times/eslint-config-next": "^7.1.0",
     "dotcom-tool-kit": "^4.10.1",
     "eslint-plugin-prettier": "^5.5.4",
