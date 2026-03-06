@@ -10,7 +10,7 @@ describe('lib/user-agent.js', () => {
 			systemCode: 'mock-system-code',
 			releaseVersion: 'mock-release-version'
 		});
-		quibble('node:process', { version: 'v1.2.3' });
+		quibble('node:process', { env: {}, version: 'v1.2.3' });
 		subject = require('../../lib/user-agent');
 	});
 
@@ -35,6 +35,34 @@ describe('lib/user-agent.js', () => {
 				assert.equal(
 					subject.buildUserAgent(),
 					'FTSystem/mock-system-code/mock-release-version (Node.js/1.2.3)'
+				);
+			});
+		});
+
+		describe('when `options.hash` is defined', () => {
+			it('returns a user-agent string containing the hash', () => {
+				assert.equal(
+					subject.buildUserAgent({ hash: 'mock-hash' }),
+					'FTSystem/mock-system-code/mock-release-version (hash:mock-hash; Node.js/1.2.3)'
+				);
+			});
+		});
+
+		describe('when `process.env.USER_AGENT_HASH` is defined', () => {
+			beforeEach(() => {
+				quibble.reset();
+				quibble('@dotcom-reliability-kit/app-info', {
+					systemCode: 'mock-system-code',
+					releaseVersion: 'mock-release-version'
+				});
+				quibble('node:process', { env: { USER_AGENT_HASH: 'mock-hash' }, version: 'v1.2.3' });
+				subject = require('../../lib/user-agent');
+			});
+
+			it('returns a user-agent string containing the hash', () => {
+				assert.equal(
+					subject.buildUserAgent(),
+					'FTSystem/mock-system-code/mock-release-version (hash:mock-hash; Node.js/1.2.3)'
 				);
 			});
 		});
@@ -107,11 +135,15 @@ describe('lib/user-agent.js', () => {
 			});
 		});
 
-		describe('when `options.libraries` and `options.urls` are defined', () => {
-			it('returns a user-agent string containing the specified libraries and URLs', () => {
+		describe('when all options are defined', () => {
+			it('returns a user-agent string containing the specified hash, libraries, and URLs', () => {
 				assert.equal(
-					subject.buildUserAgent({ libraries: ['mock-library-1'], urls: ['mock-url-1'] }),
-					'FTSystem/mock-system-code/mock-release-version (mock-library-1-name/mock-library-1-version; +mock-url-1; Node.js/1.2.3)'
+					subject.buildUserAgent({
+						hash: 'mock-hash',
+						libraries: ['mock-library-1'],
+						urls: ['mock-url-1']
+					}),
+					'FTSystem/mock-system-code/mock-release-version (hash:mock-hash; mock-library-1-name/mock-library-1-version; +mock-url-1; Node.js/1.2.3)'
 				);
 			});
 		});
@@ -120,7 +152,7 @@ describe('lib/user-agent.js', () => {
 			beforeEach(() => {
 				quibble.reset();
 				quibble('@dotcom-reliability-kit/app-info', {});
-				quibble('node:process', { version: 'v1.2.3' });
+				quibble('node:process', { env: {}, version: 'v1.2.3' });
 				subject = require('../../lib/user-agent');
 			});
 
