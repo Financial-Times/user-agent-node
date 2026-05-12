@@ -23,7 +23,7 @@
   "devDependencies": {
     "@babel/core": "^7.29.0",
     "@babel/eslint-parser": "^7.28.6",
-    "@commitlint/config-conventional": "^20.5.3",
+    "@commitlint/config-conventional": "^21.0.1",
     "@dotcom-reliability-kit/eslint-config": "^4.1.0",
     "@dotcom-tool-kit/commitlint": "^2.1.0",
     "@dotcom-tool-kit/component": "^7.0.4",
